@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/toolbar"
+        style="@style/AppToolbar"
+        app:navigationContentDescription="@string/navigate_up"
+        app:navigationIcon="@drawable/ic_arrow_back"
+        app:title="@string/add_title" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingHorizontal="16dp"
+            android:paddingBottom="16dp">
+
+            <!-- (1) Họ và tên, không được để trống -->
+            <TextView
+                style="@style/FieldLabel"
+                android:text="@string/label_name" />
+
+            <EditText
+                android:id="@+id/edtName"
+                style="@style/InputBox"
+                android:hint="@string/hint_name"
+                android:inputType="textPersonName|textCapWords" />
+
+            <!-- (2) Số điện thoại: 10 chữ số, bắt đầu bằng 0 -->
+            <TextView
+                style="@style/FieldLabel"
+                android:text="@string/label_phone" />
+
+            <EditText
+                android:id="@+id/edtPhone"
+                style="@style/InputBox"
+                android:hint="@string/hint_phone"
+                android:inputType="phone"
+                android:maxLength="10" />
+
+            <!-- (3) Nhóm -->
+            <TextView
+                style="@style/FieldLabel"
+                android:text="@string/label_group" />
+
+            <Spinner
+                android:id="@+id/spnGroup"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:background="@drawable/bg_input" />
+
+            <!-- (4) Giới tính, mặc định Nam -->
+            <TextView
+                style="@style/FieldLabel"
+                android:text="@string/label_gender" />
+
+            <RadioGroup
+                android:id="@+id/rgGender"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:checkedButton="@+id/rbMale"
+                android:orientation="horizontal">
+
+                <RadioButton
+                    android:id="@+id/rbMale"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/gender_male" />
+
+                <RadioButton
+                    android:id="@+id/rbFemale"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/gender_female" />
+
+                <RadioButton
+                    android:id="@+id/rbOther"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/gender_other" />
+            </RadioGroup>
+
+            <!-- (5) Yêu thích -->
+            <CheckBox
+                android:id="@+id/cbFavorite"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/label_favorite" />
+
+            <!-- (6) Ghi chú nhiều dòng, không bắt buộc -->
+            <TextView
+                style="@style/FieldLabel"
+                android:text="@string/label_note" />
+
+            <EditText
+                android:id="@+id/edtNote"
+                style="@style/InputBox"
+                android:gravity="top|start"
+                android:hint="@string/hint_note"
+                android:inputType="textMultiLine|textCapSentences"
+                android:minLines="3"
+                android:paddingVertical="10dp" />
+
+            <!-- (7) Nút Lưu liên hệ -->
+            <Button
+                android:id="@+id/btnSave"
+                style="@style/PrimaryButton"
+                android:layout_marginTop="20dp"
+                android:text="@string/btn_save" />
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>
